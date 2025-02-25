@@ -1,10 +1,9 @@
-package com.greetingapp.greeting.dto;
+package com.greetingapp.greeting.dto_model;
 
 public class Greeting {
 
     //define attributes
     private String message;
-
 
     //define constructor
     public Greeting(String message) {

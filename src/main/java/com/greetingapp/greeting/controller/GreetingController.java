@@ -1,8 +1,6 @@
 package com.greetingapp.greeting.controller;
 
-
-import com.greetingapp.greeting.GreetingApplication;
-import com.greetingapp.greeting.dto.Greeting;
+import com.greetingapp.greeting.dto_model.Greeting;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,13 +13,13 @@ public class GreetingController {
     }
 
     @PostMapping("/custom")  //create a greeting message
-    public Greeting postGreeting(@RequestBody Greeting greeting) {
-        return new Greeting("Hello " + greeting.getMessage() + " from BridgeLabz!!");
+    public Greeting postGreeting(@RequestBody Greeting greet) {
+        return new Greeting("Hello " + greet.getMessage() + " from BridgeLabz!!");
     }
 
     @PutMapping("/update")  //update a greeting message
-    public Greeting updateGreeting(@RequestBody Greeting greeting) {
-        return new Greeting("Message updated: " + greeting.getMessage());
+    public Greeting updateGreeting(@RequestBody Greeting greet) {
+        return new Greeting("Message updated: " + greet.getMessage());
     }
 
     @DeleteMapping("/delete") //delete a greeting message
