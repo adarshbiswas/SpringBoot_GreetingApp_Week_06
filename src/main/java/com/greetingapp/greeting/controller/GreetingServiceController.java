@@ -1,8 +1,12 @@
 package com.greetingapp.greeting.controller;
 
 import com.greetingapp.greeting.dto_model.UserDTO;
+import com.greetingapp.greeting.entities.GreetingEntity;
 import com.greetingapp.greeting.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -31,4 +35,11 @@ public class GreetingServiceController {
     public String getCustomGreetingMessageWithPost(@RequestBody UserDTO user){
         return greetingService.customGreetingMessage(user.getFirstName(), user.getLastName());
     }
+
+    // Save Greeting Message
+    @PostMapping("/save")
+    public GreetingEntity saveGreeting(@RequestBody String message) {
+        return greetingService.saveGreeting(message);
+    }
+
 }
