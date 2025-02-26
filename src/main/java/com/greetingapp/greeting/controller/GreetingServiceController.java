@@ -17,22 +17,22 @@ public class GreetingServiceController {
     private final GreetingService greetingService;
 
     //constructor based Dependency injection
-    public GreetingServiceController(GreetingService greetingService){
+    public GreetingServiceController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
     @GetMapping
-    public String getGreeting(){
+    public String getGreeting() {
         return greetingService.getGreetingMessage();
     }
 
     @GetMapping("/name")
-    public String getCustomGreetingMessage(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName){
-        return greetingService.customGreetingMessage(firstName,lastName);
+    public String getCustomGreetingMessage(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName) {
+        return greetingService.customGreetingMessage(firstName, lastName);
     }
 
     @PostMapping("/post")
-    public String getCustomGreetingMessageWithPost(@RequestBody UserDTO user){
+    public String getCustomGreetingMessageWithPost(@RequestBody UserDTO user) {
         return greetingService.customGreetingMessage(user.getFirstName(), user.getLastName());
     }
 
@@ -42,4 +42,9 @@ public class GreetingServiceController {
         return greetingService.saveGreeting(message);
     }
 
+    // Get Greeting by ID
+    @GetMapping("/{id}")
+    public Optional<GreetingEntity> getGreetingById(@PathVariable Long id) {
+        return greetingService.getGreetingById(id);
+    }
 }
