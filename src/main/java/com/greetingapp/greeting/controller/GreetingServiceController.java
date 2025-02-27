@@ -3,6 +3,7 @@ package com.greetingapp.greeting.controller;
 import com.greetingapp.greeting.dto_model.UserDTO;
 import com.greetingapp.greeting.entities.GreetingEntity;
 import com.greetingapp.greeting.service.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,9 +14,10 @@ import java.util.Optional;
 @RequestMapping("/greeting/hello")
 public class GreetingServiceController {
 
-    //private attribute
+
     private final GreetingService greetingService;
 
+    @Autowired
     //constructor based Dependency injection
     public GreetingServiceController(GreetingService greetingService) {
         this.greetingService = greetingService;
@@ -47,4 +49,11 @@ public class GreetingServiceController {
     public Optional<GreetingEntity> getGreetingById(@PathVariable Long id) {
         return greetingService.getGreetingById(id);
     }
+
+// List all Greeting Messages
+    @GetMapping("/list")
+    public List<GreetingEntity> getAllMessages() {
+        return greetingService.getAllMessages();
+    }
+
 }
