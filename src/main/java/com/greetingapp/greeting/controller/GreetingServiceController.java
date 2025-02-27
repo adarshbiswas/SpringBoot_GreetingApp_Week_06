@@ -62,4 +62,11 @@ public class GreetingServiceController {
         return greetingService.updateGreeting(id, greeting.getMessage());
     }
 
+    //    Delete message
+    @DeleteMapping("/delete/{id}")
+    public String deleteMessage(@PathVariable Long id) {
+        boolean deleted = greetingService.deleteGreeting(id);
+        return deleted ? "Greeting deleted successfully!" : "Greeting not found";
+    }
+
 }
