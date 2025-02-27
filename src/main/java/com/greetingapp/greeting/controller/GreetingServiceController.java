@@ -50,10 +50,16 @@ public class GreetingServiceController {
         return greetingService.getGreetingById(id);
     }
 
-// List all Greeting Messages
+    // List all Greeting Messages
     @GetMapping("/list")
     public List<GreetingEntity> getAllMessages() {
         return greetingService.getAllMessages();
+    }
+
+    //    Update message
+    @PutMapping("/update/{id}")
+    public GreetingEntity updateMessage(@PathVariable Long id, @RequestBody GreetingEntity greeting) {
+        return greetingService.updateGreeting(id, greeting.getMessage());
     }
 
 }
