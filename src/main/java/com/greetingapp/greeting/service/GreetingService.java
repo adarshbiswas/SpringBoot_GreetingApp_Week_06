@@ -1,9 +1,12 @@
 package com.greetingapp.greeting.service;
 
+import com.greetingapp.greeting.dto_model.Greeting;
 import com.greetingapp.greeting.entities.GreetingEntity;
 import com.greetingapp.greeting.repositories.GreetingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,6 +35,10 @@ public class GreetingService {
         }
     }
 
+    public Greeting getGreetingById(long id) {
+        return null;
+    }
+
 
     // Save Greeting Message
     public GreetingEntity saveGreeting(String message) {
@@ -42,5 +49,10 @@ public class GreetingService {
     // Get Greeting Message by ID
     public Optional<GreetingEntity> getGreetingById(Long id) {
         return greetingRepository.findById(id);
+    }
+
+//    Get all Greeting Messages in the Repository
+    public List<GreetingEntity> getAllMessages() {
+        return greetingRepository.findAll();
     }
 }

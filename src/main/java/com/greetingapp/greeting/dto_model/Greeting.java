@@ -1,7 +1,12 @@
 package com.greetingapp.greeting.dto_model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
 public class Greeting {
 
+    //use getter and setter
     //define attributes
     private String message;
 
@@ -10,12 +15,11 @@ public class Greeting {
         this.message = message;
     }
 
-    //use getter and setter
-    public String getMessage() {
-        return message;
-    }
-
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
